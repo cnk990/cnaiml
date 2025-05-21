@@ -90,9 +90,9 @@ These visual insights informed downstream feature encoding and stakeholder strat
 
 ### Advanced Models
 - **Random Forest**
-  - Random Forest Regressor was selected as a primary modeling approach due to its robustness in handling both categorical
+  - Random Forest Regressor was selected as a primary modeling approach due to its robustness in handling both categorical and
   continuous variables, and its ability to model complex, non-linear relationships without requiring extensive feature transformation.
-  - Given the mix og engineered features, Random Forest offered strong performance while maintaining interpretability through feature importance analysis.
+  - Given the mix of engineered features, Random Forest offered strong performance while maintaining interpretability through feature importance analysis.
   - Cross-validation and hyperparameter tuning via RandomizedSearchCV helped further refine the model, ultimately yielding the best R2 score.
     - GridSearchCV: R² = 0.6282, MSE = 0.0751  
     - RandomizedSearchCV: **R² = 0.6334**, MSE = 0.0741 (Final model)
