@@ -32,6 +32,24 @@ What combination of player engagement, platform type and monetization strategies
 - Size: ~5,000 observations, 10+ features
 - Features: Game release date, DAU(Daily Active Users), new registrations, session duration, in-game purchases, platform, top_genre, stream viewership, social media mentions and influencer endorsements.
 
+## Data Cleaning & EDA
+
+Data Cleaning
+- The dataset required minimal cleaning.
+- Column names were standardized for consistency, and the `influencer_endorsements` column was binarized to distinguish between titles with or without marketing.
+- No missing values were found.
+
+Exploratory Data Analysis (EDA)
+  - Focused on uncovering monetization drivers across platform and genre dimensions.
+- Key steps include:
+  - Scatter plot of Session Duration vs. Log transformed Revenue per User to understand monetization efficiency Platforms.
+  ![RPU Session Duration by Platform](images/revenue_per_user_vs_session_duration_by_platform.png)
+  - Box plot of Revenue by Influencer Endorsements to understand how influencer endorsements drive monetization.
+  ![Revenue by Influencer Endorsements](images/box_plot_revenue_by_influencer_endorsements.png)
+
+These insights informed the construction of stakeholder-aligned features and guided the choice of modeling strategies.
+
+
 ## Feature Engineering
 Features were selected and engineered by **reverse-mapping to stakeholder goals**:
 - **Developers**: DAU, engagement bins, interaction effects  
@@ -72,8 +90,12 @@ These visual insights informed downstream feature encoding and stakeholder strat
 
 ### Advanced Models
 - **Random Forest**
-  - GridSearchCV: R² = 0.6282, MSE = 0.0751  
-  - RandomizedSearchCV: **R² = 0.6334**, MSE = 0.0741 (Final model)
+  - Random Forest Regressor was selected as a primary modeling approach due to its robustness in handling both categorical
+  continuous variables, and its ability to model complex, non-linear relationships without requiring extensive feature transformation.
+  - Given the mix og engineered features, Random Forest offered strong performance while maintaining interpretability through feature importance analysis.
+  - Cross-validation and hyperparameter tuning via RandomizedSearchCV helped further refine the model, ultimately yielding the best R2 score.
+    - GridSearchCV: R² = 0.6282, MSE = 0.0751  
+    - RandomizedSearchCV: **R² = 0.6334**, MSE = 0.0741 (Final model)
 - **XGBoost**
   - R² = 0.6197, MSE = 0.0768  
   - RandomizedSearchCV: R² = 0.6075, MSE = 0.0793
