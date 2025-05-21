@@ -42,7 +42,7 @@ Data Cleaning
 Exploratory Data Analysis (EDA)
   - Focused on uncovering monetization drivers across platform and genre dimensions.
 - Key steps include:
-  - Scatter plot of Session Duration vs. Log transformed Revenue per User to understand monetization efficiency Platforms.
+  - Scatter plot of Session Duration vs. Log transformed Revenue per User to understand monetization efficiency across Platforms.
   ![RPU Session Duration by Platform](images/revenue_per_user_vs_session_duration_by_platform.png)
   - Box plot of Revenue by Influencer Endorsements to understand how influencer endorsements drive monetization.
   ![Revenue by Influencer Endorsements](images/box_plot_revenue_by_influencer_endorsements.png)
